@@ -20,6 +20,7 @@
 package org.apache.james.webadmin.dto;
 
 import org.apache.james.core.healthcheck.ComponentName;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.net.UrlEscapers;
 
