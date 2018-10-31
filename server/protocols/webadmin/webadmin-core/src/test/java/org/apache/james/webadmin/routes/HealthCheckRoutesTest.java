@@ -22,7 +22,10 @@ package org.apache.james.webadmin.routes;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static org.apache.james.webadmin.WebAdminServer.NO_CONFIGURATION;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 
 import java.net.MalformedURLException;
 import java.util.HashSet;
@@ -255,7 +258,7 @@ public class HealthCheckRoutesTest {
         when()
            .get(HealthCheckRoutes.CHECKS)
         .then()
-            .body("",hasSize(1))
+            .body("", hasSize(1))
             .body("componentName[0]", equalTo(NAME_3))
             .body("escapedComponentName[0]", equalTo(NAME_3_ESCAPED))
             .statusCode(HttpStatus.OK_200);
@@ -268,7 +271,7 @@ public class HealthCheckRoutesTest {
         when()
            .get(HealthCheckRoutes.CHECKS)
         .then()
-           .body("",hasSize(2))
+           .body("", hasSize(2))
            .statusCode(HttpStatus.OK_200);
     }
 
